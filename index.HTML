@@ -1,39 +1,81 @@
-<?php
-include 'db.php';
-
-$sql = "SELECT * FROM siswa";
-$result = $conn->query($sql);
-?>
-
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Absensi Kelas</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Daftar Siswa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 60%;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+        a {
+            color: blue;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>Daftar Siswa</h1>
         <table>
-            <tr>
-                <th>ID</th>
-                <th>Nama Siswa</th>
-                <th>Absensi</th>
-            </tr>
-            <?php while ($row = $result->fetch_assoc()) { ?>
+            <thead>
                 <tr>
-                    <td><?php echo $row['id']; ?></td>
-                    <td><?php echo $row['nama']; ?></td>
-                    <td><a href="absen.php?id=<?php echo $row['id']; ?>">Absen</a></td>
+                    <th>ID</th>
+                    <th>Nama Siswa</th>
+                    <th>Absensi</th>
                 </tr>
-            <?php } ?>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>43</td>
+                    <td>Reza Setiawan</td>
+                    <td><a href="#">Absen</a></td>
+                </tr>
+                <tr>
+                    <td>51</td>
+                    <td>Eko Andrianto</td>
+                    <td><a href="#">Absen</a></td>
+                </tr>
+                <tr>
+                    <td>69</td>
+                    <td>Agung Riyadi</td>
+                    <td><a href="#">Absen</a></td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </body>
 </html>
-
-<?php
-$conn->close();
-?>
